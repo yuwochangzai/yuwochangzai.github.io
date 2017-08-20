@@ -150,7 +150,7 @@ hexo官方教程：https://hexo.io/zh-cn/docs/简书作者“深山老猿”教�
 <p>安装完成后，将如下配置添加到你的<code>_config.yml</code>文件中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repo&gt;</div></pre></td></tr></table></figure>
 <p>其中<code>&lt;repo&gt;</code>为刚创建的Github Pages仓库的地址，格式为：<code>https://github.com/你的Github用户名/你的Github用户.github.io.git</code></p>
-<p>配置完成后，依次运行如下命令<code>hexo g</code>或<code>hexo generate</code>生成静态文件：</p>
+<p>配置完成后，运行命令<code>hexo g</code>或<code>hexo generate</code>生成静态文件(如果觉得文件有缓存，还可以先运行<code>hexo clean</code>命令，再运行<code>hexo g</code>)：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure>
 <p>再运行<code>hexo d</code>或<code>hexo deploy</code>命令发布hexo到Github pages:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure>
