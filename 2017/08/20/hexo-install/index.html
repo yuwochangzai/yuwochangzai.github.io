@@ -93,7 +93,7 @@ hexo官方教程：https://hexo.io/zh-cn/docs/简书作者“深山老猿”教�
 <li><h3 id="应用Anatole主题"><a href="#应用Anatole主题" class="headerlink" title="应用Anatole主题"></a>应用Anatole主题</h3></li>
 </ul>
 <p>在Visual Studio Code终端按下<code>control+C</code>快捷键，先停止网站服务</p>
-<p>1.将网站根目录下的<code>_config.yml</code>的配置<code>theme</code>修改为<code>anatole</code>并保存，注意”anatole”前面有一个空格，这是<a href="https://zh.wikipedia.org/wiki/YAML" target="_blank" rel="external">YAML</a>的语法规定）。</p>
+<p>1.将网站根目录下的<code>_config.yml</code>的配置<code>theme</code>修改为<code>anatole</code>并保存，注意“anatole”前面有一个空格，这是<a href="https://zh.wikipedia.org/wiki/YAML" target="_blank" rel="external">YAML</a>的语法规定）。</p>
 <p><img src="/images/hexo-install/modify theme.jpeg" alt="modify theme" title="modify theme"></p>
 <p>2.在Visual Studio Code终端执行如下命令安装Anatole主题需要的插件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-renderer-jade hexo-generator-archive</div></pre></td></tr></table></figure>
@@ -149,22 +149,22 @@ hexo官方教程：https://hexo.io/zh-cn/docs/简书作者“深山老猿”教�
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
 <p>安装完成后，将如下配置添加到你的<code>_config.yml</code>文件中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repo&gt;</div></pre></td></tr></table></figure>
-<p>其中<code>&lt;repo&gt;</code>为刚创建的Github Pages仓库的地址，格式为：<code>https://github.com/你的Github用户名/你的Github用户.github.io.git</code></p>
+<p>其中<code>&lt;repo&gt;</code>为刚创建的Github Pages仓库的地址，格式为：<code>https://github.com/你的Github用户名/你的Github用户名.github.io.git</code></p>
 <p>配置完成后，运行命令<code>hexo g</code>或<code>hexo generate</code>生成静态文件(如果觉得文件有缓存，还可以先运行<code>hexo clean</code>命令，再运行<code>hexo g</code>)：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure>
 <p>再运行<code>hexo d</code>或<code>hexo deploy</code>命令发布hexo到Github pages:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure>
 <p>回车后会提示你输入Github账户名及密码，输入后回车即可。</p>
-<p>至此，你已成功部署到Github Pages，访问<code>你的用户名.github.io</code>即可访问你的hexo网站。</p>
+<p><strong>至此，你已成功部署到Github Pages，访问<code>你的Github用户名.github.io</code>即可访问你的hexo网站。</strong></p>
 <h2 id="九、绑定到自己的域名"><a href="#九、绑定到自己的域名" class="headerlink" title="九、绑定到自己的域名"></a>九、绑定到自己的域名</h2><ul>
-<li><h3 id="域名解析CNAME到你的用户名-github-io"><a href="#域名解析CNAME到你的用户名-github-io" class="headerlink" title="域名解析CNAME到你的用户名.github.io"></a>域名解析<code>CNAME</code>到<code>你的用户名.github.io</code></h3>访问你的域名服务商进行域名解析设置，本人在<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>购买的域名，解析设置如下：</li>
+<li><h3 id="域名解析CNAME到你的Github用户名-github-io"><a href="#域名解析CNAME到你的Github用户名-github-io" class="headerlink" title="域名解析CNAME到你的Github用户名.github.io"></a>域名解析<code>CNAME</code>到<code>你的Github用户名.github.io</code></h3>访问你的域名服务商进行域名解析设置，本人在<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>购买的域名，解析设置如下：</li>
 </ul>
 <p><img src="/images/hexo-install/domain resolution.jpeg" alt="domain resolution" title="domain resolution"></p>
 <ul>
 <li><h3 id="在source文件夹下添加CNAME文件"><a href="#在source文件夹下添加CNAME文件" class="headerlink" title="在source文件夹下添加CNAME文件"></a>在<code>source</code>文件夹下添加<code>CNAME</code>文件</h3>文件内容为你的域名：</li>
 </ul>
 <p><img src="/images/hexo-install/CNAME.jpeg" alt="CNAME" title="CNAME"></p>
-<p><strong>再次运行命令<code>hexo g</code>与<code>hexo s</code>发布到Github Pages，待域名解析生效后即可用你的域名访问你的hexo网站。</strong></p>
+<p><strong>再次运行命令<code>hexo g</code>与<code>hexo d</code>发布到Github Pages，待域名解析生效后即可用你的域名访问你的hexo网站。</strong></p>
 <h2 id="十、附录"><a href="#十、附录" class="headerlink" title="十、附录"></a>十、附录</h2><blockquote>
 <p>常用hexo命令:<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/commands.html</a></p>
 </blockquote>
