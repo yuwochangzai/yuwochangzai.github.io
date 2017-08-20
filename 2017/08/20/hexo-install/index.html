@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="hujun"><title>Mac下用hexo+anatole主题+github pages搭建个站 · hujun.site</title><meta name="description" content="搭建环境：Mac
+搭建本站用到的主要工具有：
+Gitnode.jsVisual Studio Codehexoanatole主题Github
+
+
+参考文档：
+hexo官方教程：https://hexo.io/zh-cn/docs/简书作者“深山老猿”教程：Hexo搭建独立博客，托管到Github和C"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/avatar.jpeg" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/avatar.jpeg" style="width:127px;"><h3 title="" style="text-transform:none;"><a href="/">hujun.site</a></h3><div class="description"><p>.NET</p></div><span>我们都是酷的人</span></div></div><ul class="social-links"></ul><div class="footer"></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/avatar.jpeg"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3 style="text-transform:none;"><a>Mac下用hexo+anatole主题+github pages搭建个站</a></h3></div><div class="post-content"><ul>
+<li><h4 id="搭建环境："><a href="#搭建环境：" class="headerlink" title="搭建环境："></a>搭建环境：</h4>Mac</li>
+<li><h4 id="搭建本站用到的主要工具有："><a href="#搭建本站用到的主要工具有：" class="headerlink" title="搭建本站用到的主要工具有："></a>搭建本站用到的主要工具有：</h4><blockquote>
+<p><a href="https://git-scm.com/" target="_blank" rel="external">Git</a><br><a href="https://nodejs.org/zh-cn/" target="_blank" rel="external">node.js</a><br><a href="https://code.visualstudio.com/" target="_blank" rel="external">Visual Studio Code</a><br><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a><br><a href="https://github.com/Ben02/hexo-theme-Anatole" target="_blank" rel="external">anatole主题</a><br><a href="https://github.com/" target="_blank" rel="external">Github</a></p>
+</blockquote>
+</li>
+<li><h4 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h4><blockquote>
+<p>hexo官方教程：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a><br>简书作者“深山老猿”教程：<a href="http://www.jianshu.com/p/1ac405cc04e4" target="_blank" rel="external">Hexo搭建独立博客，托管到Github和Coding上教程</a><br>简书作者“水瓶座iOSer”教程：<a href="http://www.jianshu.com/p/834d7cc0668d" target="_blank" rel="external">我的博客是如何搭建的（github pages + HEXO + 域名绑定）</a></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h1><h2 id="一、安装Git"><a href="#一、安装Git" class="headerlink" title="一、安装Git"></a>一、安装Git</h2><p>安装Git请参考教程：<a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="external">https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git</a></p>
+<h2 id="二、安装Node-js"><a href="#二、安装Node-js" class="headerlink" title="二、安装Node.js"></a>二、安装Node.js</h2><p>安装Node.js请访问官网下载并安装：<a href="https://nodejs.org/zh-cn/" target="_blank" rel="external">https://nodejs.org/zh-cn/</a></p>
+<h2 id="三、安装hexo-cli"><a href="#三、安装hexo-cli" class="headerlink" title="三、安装hexo-cli"></a>三、安装hexo-cli</h2><ul>
+<li><h3 id="取得mac-root权限"><a href="#取得mac-root权限" class="headerlink" title="取得mac root权限"></a>取得mac root权限</h3></li>
+</ul>
+<p>由于安装hexo-cli会写入mac系统文件，所以需要root权限安装。<br>首先，打开mac终端（点击mac右上角搜索图标，在弹出的搜索框中输入““终端”并回车），输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -i</div></pre></td></tr></table></figure>
+<p>回车</p>
+<p><img src="/images/hexo-install/sudo.png" alt="sudo -i" title="sudo -i"></p>
+<p>根据提示输入mac密码回车即可（输入密码不会显示在终端上，只管输入完后回车即可）</p>
+<ul>
+<li><h3 id="安装hexo-cli"><a href="#安装hexo-cli" class="headerlink" title="安装hexo-cli"></a>安装hexo-cli</h3>接下来在取得root权限的终端中输入命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<p><img src="/images/hexo-install/install hexo-cli.png" alt="install hexo-cli" title="install hexo-cli"></p>
+<p>当出现如下所示界面即表示安装成功：</p>
+<p><img src="/images/hexo-install/install hexo-cli success.png" alt="install hexo-cli success" title="install hexo-cli success"></p>
+<h2 id="四、建站"><a href="#四、建站" class="headerlink" title="四、建站"></a>四、建站</h2><ul>
+<li><h3 id="新建文件夹”hexo”作为你的网站根目录"><a href="#新建文件夹”hexo”作为你的网站根目录" class="headerlink" title="新建文件夹”hexo”作为你的网站根目录"></a>新建文件夹”hexo”作为你的网站根目录</h3></li>
+</ul>
+<p><img src="/images/hexo-install/create hexo folder.png" alt="create hexo folder" title="create hexo folder"></p>
+<ul>
+<li><h3 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h3></li>
+</ul>
+<p>新开一个终端窗口，以普通用户身份运行（为什么要新开窗口以普通用户身份运行？因为如果以root身份初始化hexo会将”hexo”目录下的所有文件权限设置为 System用户才有读写权限，极不方便后续的修改操作）</p>
+<p>执行如下命令初始化hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init &lt;folder&gt;</div></pre></td></tr></table></figure>
+<p>其中<code>&lt;folder&gt;</code>为你的网站根目录路径，如果你不知道你的目录路径，你可以使用<code>command+C</code>快捷键复制你的hexo文件夹，然后再用<code>command+V</code>粘贴到终端中，这里我的网站根目录路径是<code>/Users/hujun/Data/hexo</code>：</p>
+<p><img src="/images/hexo-install/init hexo.png" alt="init hexo" title="init hexo"></p>
+<p>当出现如下所示界面时即表示初始化完成：</p>
+<p><img src="/images/hexo-install/init hexo success.png" alt="init hexo success" title="init hexo success"></p>
+<ul>
+<li><h3 id="安装Visual-Studo-Code"><a href="#安装Visual-Studo-Code" class="headerlink" title="安装Visual Studo Code"></a>安装Visual Studo Code</h3></li>
+</ul>
+<p>安装请参考官网安装：<a href="https://code.visualstudio.com/" target="_blank" rel="external">https://code.visualstudio.com/</a></p>
+<p>安装完后请选中菜单栏的“文件”-“打开…”按钮打开刚才创建的“hexo”文件夹</p>
+<p><img src="/images/hexo-install/open hexo.png" alt="open hexo" title="open hexo"></p>
+<p>在Visual Studio Code打开hexo文件夹之后，选中菜单栏的“查看”-“集成终端”按钮打开终端：</p>
+<p><img src="/images/hexo-install/open terminal.png" alt="open terminal" title="open terminal"></p>
+<p>终端会出现在Visual Studio Code的右下角：</p>
+<p><img src="/images/hexo-install/terminal.jpeg" alt="terminal" title="terminal"></p>
+<ul>
+<li><h3 id="安装hexo所需的package"><a href="#安装hexo所需的package" class="headerlink" title="安装hexo所需的package"></a>安装hexo所需的package</h3></li>
+</ul>
+<p>在Visual Studo Code终端中执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="运行hexo-server"><a href="#运行hexo-server" class="headerlink" title="运行hexo server"></a>运行hexo server</h3></li>
+</ul>
+<p>执行完<code>npm install</code>后执行<code>hexo s</code>或<code>hexo server</code>命令即可使hexo服务端运行起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure>
+<p><img src="/images/hexo-install/hexo server.png" alt="hexo server" title="hexo server"></p>
+<p>根据提示，在浏览器中访问<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>会出现如下页面：</p>
+<p><img src="/images/hexo-install/hello world.png" alt="hello world" title="hello world"></p>
+<p><strong>至此，你已经在本地运行起来了hexo!</strong></p>
+<h2 id="五、更换hexo主题"><a href="#五、更换hexo主题" class="headerlink" title="五、更换hexo主题"></a>五、更换hexo主题</h2><ul>
+<li><h3 id="筛选主题"><a href="#筛选主题" class="headerlink" title="筛选主题"></a>筛选主题</h3></li>
+</ul>
+<p>hexo官网提供了很多主题库（地址：<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a>）,你可以在这里筛选你喜欢的主题然后应用到你的个站中（点击主题名称可以跳转到主题的Github地址）：</p>
+<p><img src="/images/hexo-install/thems.png" alt="thems" title="thems"></p>
+<p>我个人偏向于极简风，这里我选择的是Anatole主题:<a href="https://github.com/Ben02/hexo-theme-Anatole" target="_blank" rel="external">https://github.com/Ben02/hexo-theme-Anatole</a></p>
+<ul>
+<li><h3 id="安装Anatole主题"><a href="#安装Anatole主题" class="headerlink" title="安装Anatole主题"></a>安装<a href="https://github.com/Ben02/hexo-theme-Anatole" target="_blank" rel="external">Anatole</a>主题</h3></li>
+</ul>
+<p>安装Anatole主题可以参考该主题作者编写的安装文档：<a href="https://github.com/Ben02/hexo-theme-Anatole/wiki" target="_blank" rel="external">https://github.com/Ben02/hexo-theme-Anatole/wiki</a></p>
+<p>安装主题其实就是将主题代码拷贝到你的网站的thems文件夹下，获取代码方式一般有两种：</p>
+<ol>
+<li>用git clone，好处是方便拉取最新代码（推荐使用Git图形化界面工具<a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">SourceTree</a> Clone代码）</li>
+<li>直接下载</li>
+</ol>
+<p><img src="/images/hexo-install/install anatole.jpeg" alt="install anatole" title="install anatole"></p>
+<p>安装后的目录结构如下图：</p>
+<p><img src="/images/hexo-install/installed anatole.jpeg" alt="installed anatole" title="installed anatole"></p>
+<ul>
+<li><h3 id="应用Anatole主题"><a href="#应用Anatole主题" class="headerlink" title="应用Anatole主题"></a>应用Anatole主题</h3></li>
+</ul>
+<p>在Visual Studio Code终端按下<code>control+C</code>快捷键，先停止网站服务</p>
+<p>1.将网站根目录下的<code>_config.yml</code>的配置<code>theme</code>修改为<code>anatole</code>并保存，注意”anatole”前面有一个空格，这是<a href="https://zh.wikipedia.org/wiki/YAML" target="_blank" rel="external">YAML</a>的语法规定）。</p>
+<p><img src="/images/hexo-install/modify theme.jpeg" alt="modify theme" title="modify theme"></p>
+<p>2.在Visual Studio Code终端执行如下命令安装Anatole主题需要的插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-renderer-jade hexo-generator-archive</div></pre></td></tr></table></figure>
+<p><img src="/images/hexo-install/install anatole plugin.png" alt="install anatole plugin" title="install anatole plugin"></p>
+<p>3.在<code>_config.yml</code>文件的末尾，添加如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># anotate</div><div class="line">archive_generator:</div><div class="line">  per_page: 0  </div><div class="line">  yearly: false</div><div class="line">  monthly: false</div><div class="line">  daily: false</div></pre></td></tr></table></figure>
+<p><img src="/images/hexo-install/anatole config.jpeg" alt="anatole config" title="anatole config"></p>
+<p>执行<code>hexo s</code>命令查看应用的主题更改，可以看到页面已经变成了Anatole的主题风格：</p>
+<p><img src="/images/hexo-install/apply anatole theme.png" alt="apply anatole theme" title="apply anatole theme"></p>
+<h2 id="六、hexo的个性化"><a href="#六、hexo的个性化" class="headerlink" title="六、hexo的个性化"></a>六、hexo的个性化</h2><p>可以参考hexo官方文档<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/configuration.html</a>修改<code>_config.yml</code>的配置，以下是我的一些简单修改：</p>
+<p><img src="/images/hexo-install/modify config.jpeg" alt="modify config" title="modify config"></p>
+<p>头像路径如下：</p>
+<p><img src="/images/hexo-install/avatar path.jpeg" alt="avatar path" title="avatar path"></p>
+<p>将Anatole主题右上角头像修改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">link(rel=&quot;short icon&quot;, href= config.avatar,type=&quot;image/x-icon&quot;)</div></pre></td></tr></table></figure></p>
+<p><img src="/images/hexo-install/head avatar.jpeg" alt="head avatar" title="head avatar"></p>
+<p>将Avatole主题左侧头像修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">img(src= url_for(config.avatar),style=&quot;width:127px;&quot;)</div></pre></td></tr></table></figure>
+<p><img src="/images/hexo-install/sidebar avatar.jpeg" alt="sidebar avatar" title="sidebar avatar"></p>
+<p>再次运行<code>hexo s</code>,查看更改：</p>
+<p><img src="/images/hexo-install/modified.png" alt="modified" title="modified"></p>
+<p>Avatole主题默认网站title与文章title都是大写显示的，若不喜欢这样的显示，可以更改<code>sidebar.jade</code>与<code>mixins.jade</code>相应的样式：</p>
+<p><img src="/images/hexo-install/modify sidebar.jpeg" alt="modify sidebar" title="modify sidebar"></p>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">h3(title=&quot;&quot;,style=&quot;text-transform:none;&quot;)</div></pre></td></tr></table></figure>
+<p><img src="/images/hexo-install/modify mixins.jpeg" alt="modify mixins" title="modify mixins"></p>
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">h3(style=&quot;text-transform:none;&quot;)</div></pre></td></tr></table></figure>
+<p>运行<code>hexo s</code>查看更改：</p>
+<p><img src="/images/hexo-install/modify css.jpeg" alt="modify css" title="modify css"></p>
+<h2 id="七、创建文章"><a href="#七、创建文章" class="headerlink" title="七、创建文章"></a>七、创建文章</h2><p>使用如下命令即可快速生成文章<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">MarkDown</a>文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &lt;title&gt;</div></pre></td></tr></table></figure>
+<p>其中<code>&lt;title&gt;</code>为文章标题，在此我创建了一篇名为“machineKey”的文章：</p>
+<p><img src="/images/hexo-install/create new post.jpeg" alt="create new post" title="create new post"></p>
+<p>如果对MarkDown的语法不太熟悉，可以使用<a href="https://note.youdao.com/download.html" target="_blank" rel="external">有道云笔记</a>的MarkDown编辑器功能，然后将编辑器中的MarkDown代码复制粘贴到<code>mackineKey.md</code>代码后面：</p>
+<p><img src="/images/hexo-install/create markdown by youdao.jpeg" alt="create markdown by youdao" title="create markdown by youdao"></p>
+<p><img src="/images/hexo-install/youdao toolbar.jpeg" alt="youdao toolbar" title="youdao toolbar"></p>
+<p>运行<code>hexo s</code>查看新增的文章：</p>
+<p><img src="/images/hexo-install/view new post.jpeg" alt="view new post" title="view new post"></p>
+<h2 id="八、部署到Github-Pages"><a href="#八、部署到Github-Pages" class="headerlink" title="八、部署到Github Pages"></a>八、部署到Github Pages</h2><ul>
+<li><h3 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a>注册Github账号</h3></li>
+</ul>
+<p>没有Github账号的请到Github官网注册：<a href="https://github.com" target="_blank" rel="external">https://github.com</a></p>
+<ul>
+<li><h3 id="新建Github-Pages仓库"><a href="#新建Github-Pages仓库" class="headerlink" title="新建Github Pages仓库"></a>新建Github Pages仓库</h3>按下图操作新建仓库：</li>
+</ul>
+<p><img src="/images/hexo-install/create new repository.jpeg" alt="create new repository" title="create new repository"></p>
+<p>仓库名称请务必填写你的Github用户名.repository.io，且务必选中Public：</p>
+<p><img src="/images/hexo-install/github pages repository.jpeg" alt="github pages repository" title="github pages repository"></p>
+<p>点击<code>Create repository</code>按钮完成Github Pages仓库的创建。</p>
+<ul>
+<li><h3 id="安装hexo-deployer-git"><a href="#安装hexo-deployer-git" class="headerlink" title="安装hexo-deployer-git"></a>安装<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a></h3>命令如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>安装完成后，将如下配置添加到你的<code>_config.yml</code>文件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repo&gt;</div></pre></td></tr></table></figure>
+<p>其中<code>&lt;repo&gt;</code>为刚创建的Github Pages仓库的地址，格式为：<code>https://github.com/你的Github用户名/你的Github用户.github.io.git</code></p>
+<p>配置完成后，依次运行如下命令<code>hexo g</code>或<code>hexo generate</code>生成静态文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure>
+<p>再运行<code>hexo d</code>或<code>hexo deploy</code>命令发布hexo到Github pages:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure>
+<p>回车后会提示你输入Github账户名及密码，输入后回车即可。</p>
+<p>至此，你已成功部署到Github Pages，访问<code>你的用户名.github.io</code>即可访问你的hexo网站。</p>
+<h2 id="九、绑定到自己的域名"><a href="#九、绑定到自己的域名" class="headerlink" title="九、绑定到自己的域名"></a>九、绑定到自己的域名</h2><ul>
+<li><h3 id="域名解析CNAME到你的用户名-github-io"><a href="#域名解析CNAME到你的用户名-github-io" class="headerlink" title="域名解析CNAME到你的用户名.github.io"></a>域名解析<code>CNAME</code>到<code>你的用户名.github.io</code></h3>访问你的域名服务商进行域名解析设置，本人在<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>购买的域名，解析设置如下：</li>
+</ul>
+<p><img src="/images/hexo-install/domain resolution.jpeg" alt="domain resolution" title="domain resolution"></p>
+<ul>
+<li><h3 id="在source文件夹下添加CNAME文件"><a href="#在source文件夹下添加CNAME文件" class="headerlink" title="在source文件夹下添加CNAME文件"></a>在<code>source</code>文件夹下添加<code>CNAME</code>文件</h3>文件内容为你的域名：</li>
+</ul>
+<p><img src="/images/hexo-install/CNAME.jpeg" alt="CNAME" title="CNAME"></p>
+<p><strong>再次运行命令<code>hexo g</code>与<code>hexo s</code>发布到Github Pages，待域名解析生效后即可用你的域名访问你的hexo网站。</strong></p>
+<h2 id="十、附录"><a href="#十、附录" class="headerlink" title="十、附录"></a>十、附录</h2><blockquote>
+<p>常用hexo命令:<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/commands.html</a></p>
+</blockquote>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-08-20</span><i class="fa fa-tag"></i><a href="/tags/hexo-anatole-个站/" title="hexo anatole 个站" class="tag">hexo anatole 个站 </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://yoursite.com/2017/08/20/hexo-install/,hujun.site,Mac下用hexo+anatole主题+github pages搭建个站,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2017/08/19/machineKey/" title="machineKey的加密、解密与验签算法" class="btn">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-51234498-3', 'auto');
+ga('send', 'pageview');</script></body></html>
